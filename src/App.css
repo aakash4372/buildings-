@@ -1,103 +1,137 @@
 /* Fixed Navbar */
 .navbar {
-    padding: 10px 0;
-    transition: all 0.3s ease-in-out;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 
 body {
-    padding-top: 80px;
+  padding-top: 80px;
 }
 
 .navbar-brand img {
-    height: 50px;
+  height: 50px;
 }
 
 .navbar-nav .nav-link {
-    font-size: 18px;
-    font-weight: 500;
-    margin: 0 15px;
-    position: relative;
-    transition: color 0.3s ease-in-out;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 15px;
+  position: relative;
+  transition: color 0.3s ease-in-out;
 }
 
 .navbar-nav .nav-link::after {
-    content: "";
-    width: 0;
-    height: 2px;
-    background: #007bff;
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    transition: all 0.3s ease-in-out;
-    transform: translateX(-50%);
+  content: "";
+  width: 0;
+  height: 2px;
+  background: #007bff;
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
 }
 
 .navbar-nav .nav-link:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #007bff;
+  color: #007bff;
 }
 
 @media (max-width: 991px) {
-    .navbar-collapse {
-        text-align: start;
-    }
+  .navbar-collapse {
+      text-align: start;
+  }
 
-    .navbar-nav .nav-link {
-        display: block;
-        margin: 10px 0;
-    }
+  .navbar-nav .nav-link {
+      display: block;
+      margin: 10px 0;
+  }
 }
 
-/* carousel */
-.carousel {
+  /* Container for the carousel */
+  .embla {
+    position: relative;
+    overflow: hidden;
     max-width: 100%;
-    margin: auto;
+    margin: 0 auto;
   }
-  
-  /* Ensure images fit properly */
-  .carousel img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* Ensures the full image is visible */
-    max-height: 800px; /* Adjust this as per your requirement */
+
+  /* Viewport to ensure no overflow */
+  .embla__viewport {
+    overflow: hidden;
   }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .carousel img {
-      max-height: 300px; /* Reduce height for smaller screens */
+
+  /* Flex container for slides */
+  .embla__container {
+    display: flex;
+  }
+
+  /* Individual slide */
+  .embla__slide {
+    position: relative;
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+/* Image inside slide - Fixed height across all devices */
+.embla__slide__img {
+  width: 100%;
+  max-height: 1100px; /* Maximum height */
+  object-fit: cover;
+  object-position: center center;
+}
+
+
+  /* Caption text */
+  .embla__slide__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
+  /* Keyframes for fade-in and slide-up effect */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate(-50%, 100%);
     }
-  
-    .carousel-caption h3 {
-      font-size: 18px;
-    }
-  
-    .carousel-caption p {
-      font-size: 14px;
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
     }
   }
-  
-  @media (max-width: 576px) {
-    .carousel img {
-      max-height: 250px; /* Even smaller height for mobile */
-    }
-  
-    .carousel-caption {
-      bottom: 10px; /* Adjust caption position */
-    }
-  
-    .carousel-caption h3 {
-      font-size: 16px;
-    }
-  
-    .carousel-caption p {
-      font-size: 12px;
-    }
+
+  /* Navigation buttons */
+  .embla__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
   }
-  
+
+  .embla__button--prev {
+    left: 10px;
+  }
+
+  .embla__button--next {
+    right: 10px;
+  }
+
