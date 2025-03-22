@@ -17,7 +17,7 @@ const Perspective = () => {
 
   return (
     <section className="features-section text-center">
-      <h2 className="main-about-title text-center pb-5 pt-5">A Perspective of Moments!</h2>
+      <h2 className="main-about-title text-center pb-5 pt-5">Transforming Moments into Masterpieces</h2>
       <Container>
         <Row className="justify-content-center">
           {features.map((feature, index) => (

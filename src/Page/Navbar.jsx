@@ -24,7 +24,6 @@ export default function Navbarsection() {
     { name: "About", href: "#about" },
     { name: "Our Mission", href: "#mission" },
     { name: "Our Works", href: "#works" },
-    { name: "How We Work", href: "#how-we-work" },
     { name: "Contact", href: "#contact" },
   ];
 
