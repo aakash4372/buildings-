@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const EmblaCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false); // State to track hover
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -42,17 +42,17 @@ const EmblaCarousel = () => {
   };
 
   const carouselItems = [
-    { id: 1, image: "img/room1.jpg", text: "First Slide" },
-    { id: 2, image: "img/room2.jpg", text: "Second Slide" },
-    { id: 3, image: "img/room3.jpg", text: "Third Slide" },
-    { id: 4, image: "img/room1.jpg", text: "Fourth Slide" },
-    { id: 5, image: "img/room1.jpg", text: "Fifth Slide" },
+    { id: 1, image: "img/room1.jpg", text: "Transform your real estate photos with expert editing!" },
+    { id: 2, image: "img/room2.jpg", text: "Enhance, edit, and sell faster with Rainpic Infotech!" },
+    { id: 3, image: "img/room3.jpg", text: "Turn simple property photos into stunning masterpieces!" },
+    { id: 4, image: "img/room1.jpg", text: "We bring clarity, color, and creativity to every shot!" },
+    { id: 5, image: "img/room1.jpg", text: "Transforming real estate photos into stunning visuals that sell!" },
   ];
 
   return (
-    <div  
-      className="embla" 
-      onMouseEnter={() => setIsHovered(true)} 
+    <div
+      className="embla"
+      onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="embla__viewport" ref={emblaRef}>
@@ -78,7 +78,7 @@ const EmblaCarousel = () => {
         </div>
       </div>
 
-      {/* Buttons with motion effects */}
+      {/* Navigation Buttons */}
       <motion.button
         className="embla__button embla__button--prev"
         onClick={scrollPrev}
@@ -86,7 +86,7 @@ const EmblaCarousel = () => {
         animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
         transition={{ duration: 0.3 }}
       >
-        &#10094; {/* Left arrow */}
+        &#10094;
       </motion.button>
 
       <motion.button
@@ -96,7 +96,7 @@ const EmblaCarousel = () => {
         animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
         transition={{ duration: 0.3 }}
       >
-        &#10095; {/* Right arrow */}
+        &#10095;
       </motion.button>
     </div>
   );
